@@ -16,18 +16,14 @@ CoordMode, Caret, Screen
 DllCall("AllocConsole")
 WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 
-; global vars
-
-; code
 #include src\hardcoded.ahk
 #include src\secret.ahk
 #include src\utils.ahk
 #include src\power_broadcast.ahk
-#include src\clipboard.ahk
 #include src\latvian.ahk
 #include src\japanese.ahk
 
-; hotkeys
+return
 
 ^!+`::
     SplashTextOn, 70, -1, Reloading...,
@@ -36,6 +32,7 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
     Reload
 return
 
+#include src\clipboard.hot.ahk
 #include src\latvian.hot.ahk
 #include src\japanese.hot.ahk
 #include src\common.hot.ahk
