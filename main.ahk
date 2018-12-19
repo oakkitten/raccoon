@@ -1,4 +1,37 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#InstallKeybdHook
+#UseHook
+#NoEnv
+#SingleInstance Force
+#MaxHotkeysPerInterval 100
+;#NoTrayIcon
+
+DetectHiddenWindows On
+SetWorkingDir %A_ScriptDir%
+SetKeyDelay, -1, -1
+SetTitleMatchMode RegEx
+SetTitleMatchMode Fast
+CoordMode, ToolTip, Screen
+CoordMode, Caret, Screen
+
+DllCall("AllocConsole")
+WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
+
+; global vars
+
+; code
+
+;#include src\test.ahk
+#include src\utils.ahk
+#include src\latvian.ahk
+
+; hotkeys
+
+^!+`::
+    SplashTextOn, 70, -1, Reloading...,
+    Sleep 500
+    SplashTextOff
+    Reload
+return
+
+#include src\latvian.hot.ahk
+;#include src\photos.hot.ahk
