@@ -13,6 +13,12 @@
 $!'::send, ́
 $!;::send, °
 
+^+SPACE::
+    Winset, Alwaysontop, , A
+    WinGet, _common_style, ExStyle, A
+    notify("always on top: " . (_common_style & 0x8 ? "on" : "off"))
+return
+
 ; ########################################################## fb2k forwards
 
 #z::send, ^!+{F5}

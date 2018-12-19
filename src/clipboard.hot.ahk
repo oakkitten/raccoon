@@ -3,13 +3,12 @@ OnClipboardChange:
         return
 
     if (A_EventInfo = 2) {
-        Progress, zh0 fs10 B C00 CW308A8A CTFFFFFF, non-text data,,,Consolas
+        notify("non-text data", 2000, ,"308A8A")
     } else {
         if (clipboard.starts_with_i("""" . C_HTML_FOLDER))
             clipboard := replace_path_with_url()
-        Progress, zh0 fs10 B C00 CW8A3030 CTFFFFFF, %clipboard%,,,Consolas
+        notify(clipboard, 2000, ,"8A3030", false)
     }
-    settimer, _clipboard_splash_off, -2000
 return
 
 replace_path_with_url() {
@@ -18,14 +17,9 @@ replace_path_with_url() {
     FileMove, %old_file%, %new_file%
     if (ErrorLevel <> 0) {
         SoundPlay, C:\Windows\Media\Windows Hardware Fail.wav
-        Progress, zh0 fs10 B C00 CWFF6666 CTFFFFFF, FILE ALREADY EXISTS,,,Consolas
-        sleep, 1000
+        notify("FILE ALREADY EXISTS", 1000, true, "FF6666")
     }
     out := "https://" . C_WEBSITE . "/" . SubStr(new_file, 9)
     StringReplace, out, out, `\, `/, All
     return out
 }
-
-_clipboard_splash_off:
-    progress, off
-return

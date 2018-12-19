@@ -1,7 +1,6 @@
 class _Japanese {
     splash(text) {
-        Progress, zh0 fs10 B C00 CW308A8A CTFFFFFF, %text%,,,Consolas
-        SetTimer, _Japanese_splash_off, -1000
+        notify(text)
     }
 
     big5_encode(text) {

@@ -61,3 +61,20 @@ get_random_string(l = 16) {
     s := substr(s, 1, l)
     Return s
 }
+
+; ########################################################## notify
+
+notify(text, time:=1000, blocking:=false, color:="005588", center:=true) {
+    center := center ? "1" : "0"
+    progress, zh0 fs10 B C%center%0 CW%color% CTFFFFFF, %text%,,,Consolas
+    if (blocking) {
+        sleep %time%
+        progress, off
+    } else {
+        settimer, _progress_off, -%time%
+    }
+}
+
+_progress_off:
+    progress, off
+return

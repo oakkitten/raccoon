@@ -142,7 +142,3 @@
     s::send, {down}
     d::send, {down 3}
 #IfWinActive
-
-_Japanese_splash_off:
-    progress, off
-return

@@ -18,7 +18,6 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 
 #include src\hardcoded.ahk
 #include src\secret.ahk
-#include src\utils.ahk
 #include src\power_broadcast.ahk
 #include src\latvian.ahk
 #include src\japanese.ahk
@@ -26,12 +25,11 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 return
 
 ^!+`::
-    SplashTextOn, 70, -1, Reloading...,
-    Sleep 500
-    SplashTextOff
+    notify("reloading",,true)
     Reload
 return
 
+#include src\utils.hot.ahk
 #include src\clipboard.hot.ahk
 #include src\latvian.hot.ahk
 #include src\japanese.hot.ahk

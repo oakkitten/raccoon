@@ -35,6 +35,7 @@
     ; #################################### change icon for current window
 
     ^!l::
+        notify("changing icon...")
         WinGet, ID, id, A
         hIcon := DllCall( "LoadImage", UInt,0, Str,"res\firefox.ico", UInt,1, UInt,32, UInt,32, UInt,0x10)
         SendMessage, 0x80, 0, hIcon ,, ahk_id %ID%  ; One affects Title bar and
