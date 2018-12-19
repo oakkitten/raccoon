@@ -40,3 +40,4 @@ return
 #include src\firefox.hot.ahk
 #include src\pastebin.hot.ahk
 #include src\photos.hot.ahk
+#include src\putty.hot.ahk
