@@ -38,4 +38,5 @@ return
 
 #include src\latvian.hot.ahk
 #include src\japanese.hot.ahk
+#include src\common.hot.ahk
 ;#include src\photos.hot.ahk

@@ -1,4 +1,3 @@
-; check if object such as array contains an element
 hasval(haystack, needle) {
 	if !(IsObject(haystack)) || (haystack.Length() = 0)
 		return 0
@@ -8,8 +7,8 @@ hasval(haystack, needle) {
 	return 0
 }
 
-; allow string[idx]
-; 
+; ########################################################## string prototype tools
+
 class Strings {
     static init := ("".base.base := Strings)
     
@@ -40,4 +39,14 @@ class Strings {
     ends_with_i(str) {
         return % substr(this, -strlen(str) + 1) = str
     }
+}
+
+; ########################################################## get current input language
+
+get_lang() {
+    SetFormat, Integer, H
+    WinGet, WinID,, A
+    ThreadID:=DllCall("GetWindowThreadProcessId", "UInt", WinID, "UInt", 0)
+    InputLocaleID:=DllCall("GetKeyboardLayout", "UInt", ThreadID, "UInt")
+    return, InputLocaleID
 }
