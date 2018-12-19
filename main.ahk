@@ -19,9 +19,11 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 ; global vars
 
 ; code
-
-#include src\power_broadcast.ahk
+#include src\hardcoded.ahk
+#include src\secret.ahk
 #include src\utils.ahk
+#include src\power_broadcast.ahk
+#include src\clipboard.ahk
 #include src\latvian.ahk
 #include src\japanese.ahk
 
