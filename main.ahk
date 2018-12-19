@@ -39,4 +39,5 @@ return
 #include src\latvian.hot.ahk
 #include src\japanese.hot.ahk
 #include src\common.hot.ahk
+#include src\key_fix.hot.ahk
 ;#include src\photos.hot.ahk
