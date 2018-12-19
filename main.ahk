@@ -41,3 +41,4 @@ return
 #include src\pastebin.hot.ahk
 #include src\photos.hot.ahk
 #include src\putty.hot.ahk
+#include src\screenshot.hot.ahk
