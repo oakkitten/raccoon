@@ -47,13 +47,7 @@ return
 
 ; ########################################################## ctrl-w == ctrl-backspace
 
-^w::
-    if (WinActive("ahk_class PuTTY")) {
-        send ^{vk57sc011}
-    } else {
-        send {Del}^{Backspace}
-    }
-return
+^w::send {Del}^{Backspace}
 
 ; ########################################################## quote
 

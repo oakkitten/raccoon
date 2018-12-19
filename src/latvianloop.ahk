@@ -6,6 +6,8 @@ SetTitleMatchMode 2
 DetectHiddenWindows On
 Thread, NoTimers, false
 
+#include src\prototype.ahk
+
 OnMessage(0x6666, "ToOn")
 OnMessage(0x6667, "ToOff")
 
@@ -21,37 +23,6 @@ ToOff(wParam, lParam, msg) {
     PostMessage, 0x5556,,,, main.ahk ahk_exe AutoHotkey.exe
     input
     notify("❌")
-}
-
-
-
-; allow string[idx]
-class Strings {
-    static init := ("".base.base := Strings)
-    
-    __Get(pos) {
-        return SubStr(this, pos, 1)
-    }
-
-    is_lower_at(pos) {
-        c := this[pos]
-        if c is lower
-            return % true
-        else
-            return % false
-    }
-
-    is_alpha_at(pos) {
-        c := this[pos]
-        if c is alpha
-            return % true
-        else
-            return % false
-    }
-
-    ends_with_i(str) {
-        return % substr(this, -strlen(str) + 1) = str
-    }
 }
 
 global EXPANSIONS := {"q": "aa"

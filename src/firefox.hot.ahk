@@ -1,3 +1,5 @@
+; commando! must be loaded in firefox
+
 #IfWinActive, ahk_class MozillaWindowClass
     ; #################################### pin tab
 
@@ -34,24 +36,18 @@
 
     ; #################################### change icon for current window
 
-    ^!l::
-        notify("changing icon...")
-        WinGet, ID, id, A
-        hIcon := DllCall( "LoadImage", UInt,0, Str,"res\firefox.ico", UInt,1, UInt,32, UInt,32, UInt,0x10)
-        SendMessage, 0x80, 0, hIcon ,, ahk_id %ID%  ; One affects Title bar and
-        SendMessage, 0x80, 1, hIcon ,, ahk_id %ID%  ; the other the ALT+TAB menu
-    Return
+    ^!l::_firefox_change_icon()
 #IfWinActive
 
 
 _firefox_input() {
     global _firefox_status
     if (!_firefox_status)
-        _firefox_status := _get_firefox_input_status()
+        _firefox_status := _firefox_get_input_status()
     return % _firefox_status == 2
 }
 
-_get_firefox_input_status() {
+_firefox_get_input_status() {
     WinGetTitle, old, A
     if (old == "Firefox Developer Edition")
         return 2
@@ -66,4 +62,12 @@ _get_firefox_input_status() {
         }
     }
     return 1
+}
+
+_firefox_change_icon() {
+    notify("changing icon...")
+    WinGet, ID, id, A
+    hIcon := DllCall( "LoadImage", UInt,0, Str,"res\firefox.ico", UInt,1, UInt,32, UInt,32, UInt,0x10)
+    SendMessage, 0x80, 0, hIcon ,, ahk_id %ID%  ; One affects Title bar and
+    SendMessage, 0x80, 1, hIcon ,, ahk_id %ID%  ; the other the ALT+TAB menu
 }

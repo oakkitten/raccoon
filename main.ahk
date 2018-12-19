@@ -3,7 +3,7 @@
 #NoEnv
 #SingleInstance Force
 #MaxHotkeysPerInterval 100
-;#NoTrayIcon
+#NoTrayIcon
 
 DetectHiddenWindows On
 SetWorkingDir %A_ScriptDir%
@@ -16,6 +16,7 @@ CoordMode, Caret, Screen
 DllCall("AllocConsole")
 WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 
+#include src\prototype.ahk
 #include src\hardcoded.ahk
 #include src\secret.ahk
 #include src\power_broadcast.ahk

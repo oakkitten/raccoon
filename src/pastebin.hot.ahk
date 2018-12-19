@@ -2,8 +2,7 @@
 
 _pastebin_paste() {
     progress, off
-    suggested_name := get_random_string(10)
-    InputBox, paste_file, File name to create,%clipboard%,,,,,,,60,%suggested_name%
+    InputBox, paste_file, File name to create,%clipboard%,,,,,,,60,% get_random_string(10)
     If (ErrorLevel != 0 || strlen(paste_file) < 3)
         Return
 

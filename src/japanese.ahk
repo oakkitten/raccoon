@@ -1,8 +1,4 @@
 class _Japanese {
-    splash(text) {
-        notify(text)
-    }
-
     big5_encode(text) {
         static big5 := "cp950"
         length := StrPut(text, big5)
@@ -27,14 +23,14 @@ class _Japanese {
                 ; ctrl-shift-f, ctrl-v, enter
                 Send, ^+{vk46sc021}^{vk56sc02F}{Enter}
             } else {
-                this.splash("window didn't activate")
+                notify("window didn't activate")
             }
         } else {
-            this.splash("window does not exist")
+            notify("window does not exist")
         }
     }
 
-    _open_browser() {
+    open_browser() {
         Send, b
         WinWaitActive, Browser, , 1
         success := !ErrorLevel
@@ -44,17 +40,17 @@ class _Japanese {
     }
 
     open_browser_kanji_paste() {
-        if (this._open_browser())
+        if (this.open_browser())
             Send, ^{vk46sc021}Kanji:*^{vk56sc02F}*{Enter}{Left}^+{Left}
     }
 
     open_browser_expression_paste() {
-        if (this._open_browser())
+        if (this.open_browser())
             Send, ^{vk46sc021}Expression:*^{vk56sc02F}* -card:Production{Enter}^{Left 5}^+{Left}
     }
 
     open_browser_paste() {
-        if (this._open_browser())
+        if (this.open_browser())
             Send, ^{vk46sc021}^{vk56sc02F} -card:Production{Enter}^{Left 5}^+{Left}
     }
 
@@ -64,7 +60,7 @@ class _Japanese {
         ClipWait, 1, 1
         sleep, 120
         if (ErrorLevel) {
-            this.splash("clipboard empty")
+            notify("clipboard empty")
             return false
         }
         return true
@@ -73,12 +69,12 @@ class _Japanese {
     open_zhongwen() {
         trimmed = %clipboard%
         if (StrLen(trimmed) != 1) {
-            this.splash("too long ["  Clipboard  "]")
+            notify("too long ["  Clipboard  "]")
             return
         }
         code := this.big5_encode(trimmed)
         if (code = "%3f" || code = "") {
-            this.splash("can't into big5")
+            notify("can't into big5")
             return
         }
         Run, % "http://zhongwen.com/cgi-bin/zipux.cgi?=" code

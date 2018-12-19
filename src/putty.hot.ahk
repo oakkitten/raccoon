@@ -8,6 +8,8 @@ _putty_open_url(id) {
 }
 
 #Ifwinactive, ahk_class PuTTY
+    ^w::send ^{vk57sc011}
+
     F1::
     F2::
     F3::
