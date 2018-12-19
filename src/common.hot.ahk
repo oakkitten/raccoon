@@ -45,7 +45,7 @@ $!;::send, °
     if (WinActive("ahk_class PuTTY")) {
         send ^{vk57sc011}
     } else {
-        send ^{Backspace}
+        send {Del}^{Backspace}
     }
 return
 

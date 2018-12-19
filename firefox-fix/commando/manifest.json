@@ -1,0 +1,34 @@
+{
+    "applications": {
+        "gecko": {
+            "id": "commando@oakkitten.github.com"
+        }
+    },
+
+    "name": "Commando!",
+    "description": "Some hacks for Firefox",
+    "author": "oakkitten",
+    "version": "0.4",
+    "background": {
+        "scripts": ["background.js"]
+    },
+
+
+    "permissions": [
+        "activeTab",
+        "<all_urls>"
+    ],
+
+    "commands": {
+        "toggle-pin-tab": {
+            "suggested_key": {"default": "Alt+F1"}
+        },
+        "focus-unfocus-first-input": {
+            "suggested_key": {"default": "Alt+F2"}
+        },
+        "check-input-status": {
+            "suggested_key": {"default": "Alt+F3"}
+        }
+    },
+    "manifest_version": 2
+}
