@@ -23,6 +23,7 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 #include src\power_broadcast.ahk
 #include src\utils.ahk
 #include src\latvian.ahk
+#include src\japanese.ahk
 
 ; hotkeys
 
@@ -34,4 +35,5 @@ WinHide % "ahk_id " DllCall("GetConsoleWindow", "ptr")
 return
 
 #include src\latvian.hot.ahk
+#include src\japanese.hot.ahk
 ;#include src\photos.hot.ahk
