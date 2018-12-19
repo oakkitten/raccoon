@@ -41,4 +41,5 @@ return
 #include src\common.hot.ahk
 #include src\key_fix.hot.ahk
 #include src\firefox.hot.ahk
-;#include src\photos.hot.ahk
+#include src\pastebin.hot.ahk
+#include src\photos.hot.ahk
