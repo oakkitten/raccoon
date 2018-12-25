@@ -28,6 +28,18 @@ get_random_string(l = 16) {
     Return s
 }
 
+; ########################################################## translate
+
+translate(string, from, to) {
+    out := ""
+    loop, parse, string
+    {
+        stringgetpos, pos, from, %A_LoopField%
+        out := out . (pos == -1 ? A_LoopField : substr(to, pos + 1, 1))
+    }
+    return % out
+}
+
 ; ########################################################## notify
 
 notify(text, time:=1000, blocking:=false, color:="005588", center:=true) {

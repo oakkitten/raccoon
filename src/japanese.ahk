@@ -1,3 +1,5 @@
+#include src\traditional_simplified_char_map.ahk
+
 class _Japanese {
     big5_encode(text) {
         static big5 := "cp950"
@@ -67,12 +69,14 @@ class _Japanese {
     }
 
     open_zhongwen() {
-        trimmed = %clipboard%
-        if (StrLen(trimmed) != 1) {
+        global _Japanese_simplified, _Japanese_traditional
+        kanji = %clipboard%
+        if (StrLen(kanji) != 1) {
             notify("too long ["  Clipboard  "]")
             return
         }
-        code := this.big5_encode(trimmed)
+        hanzi := translate(kanji, _Japanese_simplified, _Japanese_traditional)
+        code := this.big5_encode(hanzi)
         if (code = "%3f" || code = "") {
             notify("can't into big5")
             return
