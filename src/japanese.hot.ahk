@@ -95,13 +95,13 @@
 ;############################################################################ Putty
 
 #IfWinActive, ahk_class PuTTY
-    ; f1::
-    ;     if (A_Priorkey == "LShift") {
-    ;         Open_Ebwin_Paste()
-    ;     } else {
-    ;         WinMinimize
-    ;     }
-    ; return
+    f1::
+        if (A_Priorkey == "LShift") {
+            japanese.open_ebwin_paste()
+        } else {
+            _putty_open_url(SubStr(A_ThisHotkey, 2))
+        }
+    return
 #IfWinActive
 
 ;############################################################################ Firefox
@@ -142,3 +142,10 @@
     s::send, {down}
     d::send, {down 3}
 #IfWinActive
+
+_Japanese_check:
+    if (WinActive("^Anki - sq$")) {
+        if (japanese.ime_get())
+            japanese.ime_set(0)
+    }
+return
