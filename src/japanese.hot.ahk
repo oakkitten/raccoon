@@ -5,6 +5,9 @@
 ; c     copy → browser (kanji)
 ; v     copy → zhongwen
 
+; w     wiki → kanji 1
+; W     wiki → copy
+
 ; f2    browser → kanji 1
 ; f3    browser → kanji 2
 ; f4    browser → expression 
@@ -75,6 +78,20 @@
     v::
         if (japanese.anki_copy())
             japanese.open_zhongwen()
+    return
+
+    w::
+        send {f2}
+        clipwait 1
+        sleep 120
+        if (!ErrorLevel) {
+            run https://en.wiktionary.org/wiki/%clipboard%
+        }
+    return
+
+    +w::
+        if (japanese.anki_copy())
+            run https://en.wiktionary.org/wiki/%clipboard%
     return
 #IfWinActive
 
