@@ -134,13 +134,14 @@
     return
 #IfWinActive
 
-;############################################################################ djvu
+;############################################################################ djvu, pdf
 
 #IfWinActive, ahk_exe WinDjView.exe
-    a::Send, {up 3}
+#IfWinActive, ahk_class DSUI:PDFXCViewer
+    a::Send, {up 6}
     w::send, {up}
     s::send, {down}
-    d::send, {down 3}
+    d::send, {down 6}
 #IfWinActive
 
 _Japanese_check:
