@@ -17,6 +17,10 @@ get_lang() {
     return, InputLocaleID
 }
 
+set_lang(layout) {
+    PostMessage, 0x50, 0, %layout%,, A
+}
+
 ; ########################################################## get random string
 
 get_random_string(l = 16) {
