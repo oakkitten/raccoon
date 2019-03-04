@@ -1,5 +1,4 @@
-﻿#IfWinActive, Photos ahk_class ApplicationFrameWindow
-#IfWinActive, フォト ahk_class ApplicationFrameWindow
+﻿#IfWinActive Photos ahk_class ApplicationFrameWindow
     .::send, ^{+}
     ,::send, ^-
     /::send, ^0

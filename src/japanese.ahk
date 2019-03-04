@@ -34,26 +34,34 @@ class _Japanese {
 
     open_browser() {
         Send, b
-        WinWaitActive, Browser, , 1
+        WinWaitActive, Browser?, , 1
         success := !ErrorLevel
         if (sucess)
             WinRestore
+        this.ime_set(0)
         return success
     }
 
     open_browser_kanji_paste() {
         if (this.open_browser())
-            Send, ^{vk46sc021}Kanji:*^{vk56sc02F}*{Enter}{Left}^+{Left}
+            Send, ^{vk46sc021}Kanji:^{vk56sc02F}{Enter}
+            WinWaitActive, Browser? \(1, , 1
+            sleep, 200
+            send ^+{Left}
     }
 
     open_browser_expression_paste() {
         if (this.open_browser())
-            Send, ^{vk46sc021}Expression:*^{vk56sc02F}* -card:Production{Enter}^{Left 5}^+{Left}
+            Send, ^{vk46sc021}-card:Production Expression:*^{vk56sc02F}*{Enter}
+            sleep, 300
+            send {Left}^+{Left}
     }
 
     open_browser_paste() {
         if (this.open_browser())
-            Send, ^{vk46sc021}^{vk56sc02F} -card:Production{Enter}^{Left 5}^+{Left}
+            Send, ^{vk46sc021}-card:Production ^{vk56sc02F}{Enter}
+            sleep, 300
+            send, ^+{Left}
     }
 
     anki_copy() {

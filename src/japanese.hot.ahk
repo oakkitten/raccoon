@@ -32,7 +32,7 @@
 ; a = vk41sc01e
 ; f = vk46sc021
 
-#IfWinActive, ^Anki - sq$
+#IfWinActive, ^sq - Anki$
     z::
         if (japanese.anki_copy())
             japanese.open_browser_expression_paste()
@@ -95,7 +95,7 @@
     return
 #IfWinActive
 
-#IfWinActive, ahk_class QWidget ahk_exe anki.exe
+#IfWinActive, ahk_class Qt5QWindowIcon ahk_exe anki.exe
     f1::
         japanese.copy_open_ebwin_paste()
     return

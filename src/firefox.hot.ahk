@@ -49,7 +49,7 @@ _firefox_input() {
 
 _firefox_get_input_status() {
     WinGetTitle, old, A
-    if (old == "Firefox Developer Edition")
+    if (old == "Firefox Developer Edition" or old == "Firefox Nightly")
         return 2
 
     send, !{f3}
